@@ -25,7 +25,7 @@ public class AbstractScraper implements Scraper {
         return executionThreads;
     }
 
-    public static class Builder {
+    public static abstract class Builder<B extends Builder<B>> {
         private String outputFolder;
         private WebDriver webDriver;
         private short executionThreads;
@@ -34,22 +34,25 @@ public class AbstractScraper implements Scraper {
 
         }
 
-        public Builder setOutputFolder(String outputFolder) {
+        @SuppressWarnings("unchecked")
+        public B setOutputFolder(String outputFolder) {
             this.outputFolder = outputFolder;
-            return this;
+            return (B) this;
         }
 
-        public Builder initWebdriver(WebDriver webDriver) {
+        @SuppressWarnings("unchecked")
+        public B initWebdriver(WebDriver webDriver) {
             this.webDriver = webDriver;
-            return this;
+            return (B) this;
         }
 
-        public Builder setExecutionThreads(short executionThreads) {
+        @SuppressWarnings("unchecked")
+        public B setExecutionThreads(short executionThreads) {
             if(executionThreads < 1) {
                 throw new IllegalArgumentException("Execution threads cannot be smaller than 1. Current value: " + executionThreads);
             }
             this.executionThreads = executionThreads;
-            return this;
+            return (B) this;
         }
 
         public AbstractScraper build() {
