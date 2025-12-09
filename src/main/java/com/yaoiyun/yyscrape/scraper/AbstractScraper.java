@@ -1,16 +1,19 @@
 package com.yaoiyun.yyscrape.scraper;
 
+import com.yaoiyun.yyscrape.model.ScrapableContent;
 import org.openqa.selenium.WebDriver;
 
-public class AbstractScraper implements Scraper {
+public abstract class AbstractScraper implements Scraper {
     private final String outputFolder;
     private final WebDriver webDriver;
     private final short executionThreads;
+    private final ScrapableContent assignedContent;
 
     public AbstractScraper(Builder builder) {
         this.outputFolder = builder.outputFolder;
         this.webDriver = builder.webDriver;
         this.executionThreads = builder.executionThreads;
+        this.assignedContent = builder.assignedContent;
     }
 
     public String getOutputFolder() {
@@ -25,10 +28,18 @@ public class AbstractScraper implements Scraper {
         return executionThreads;
     }
 
+    public ScrapableContent getAssignedContent() {
+        return assignedContent;
+    }
+
+    @Override
+    public abstract void run();
+
     public static abstract class Builder<B extends Builder<B>> {
         private String outputFolder;
         private WebDriver webDriver;
         private short executionThreads;
+        private ScrapableContent assignedContent;
 
         public Builder() {
 
@@ -55,8 +66,12 @@ public class AbstractScraper implements Scraper {
             return (B) this;
         }
 
-        public AbstractScraper build() {
-            return new AbstractScraper(this);
+        @SuppressWarnings("unchecked")
+        public B assignContent(ScrapableContent content) {
+            this.assignedContent = content;
+            return (B) this;
         }
+
+        public abstract AbstractScraper build();
     }
 }
