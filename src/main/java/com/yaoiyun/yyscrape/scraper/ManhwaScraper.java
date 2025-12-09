@@ -1,6 +1,6 @@
 package com.yaoiyun.yyscrape.scraper;
 
-public class ManhwaScraper extends AbstractScraper implements Scraper {
+public class ManhwaScraper extends AbstractScraper {
     private final String manhwaScraperSpecificStringExample;
 
     private ManhwaScraper(Builder builder) {
@@ -10,6 +10,11 @@ public class ManhwaScraper extends AbstractScraper implements Scraper {
 
     public String getManhwaScraperSpecificStringExample() {
         return manhwaScraperSpecificStringExample;
+    }
+
+    @Override
+    public void run() {
+        this.getWebDriver().get(this.getAssignedContent().url());
     }
 
     public static class Builder extends AbstractScraper.Builder<Builder> {
