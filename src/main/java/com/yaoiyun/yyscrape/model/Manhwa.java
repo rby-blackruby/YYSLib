@@ -1,7 +1,4 @@
-package com.yaoiyun.yyscrape.model.manhwa;
-
-import com.yaoiyun.yyscrape.model.ScrapableContent;
-import com.yaoiyun.yyscrape.model.ScrapableContentType;
+package com.yaoiyun.yyscrape.model;
 
 import java.util.List;
 

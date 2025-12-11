@@ -1,18 +1,20 @@
-package com.yaoiyun.yyscrape.model.manhwa;
+package com.yaoiyun.yyscrape.model;
 
+import com.yaoiyun.yyscrape.model.implementations.BattwoManhwa;
+import com.yaoiyun.yyscrape.model.implementations.MangabuddyManhwa;
+import com.yaoiyun.yyscrape.model.implementations.ZinchanmangasManhwa;
 import com.yaoiyun.yyscrape.utils.UrlUtils;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.lang.reflect.Constructor;
 
 public class ManhwaFactory {
     private static Map<String, Class<? extends Manhwa>> manhwaRegistry = new ConcurrentHashMap<>();
 
     static {
-        manhwaRegistry.put("mangabuddy.com", Mangabuddy.class);
-        manhwaRegistry.put("zinchanmangas.net", Zinchanmangas.class);
-        manhwaRegistry.put("battwo.com", Battwo.class);
+        manhwaRegistry.put("mangabuddy.com", MangabuddyManhwa.class);
+        manhwaRegistry.put("zinchanmangas.net", ZinchanmangasManhwa.class);
+        manhwaRegistry.put("battwo.com", BattwoManhwa.class);
     }
 
     // TODO: more elaborate exception handling

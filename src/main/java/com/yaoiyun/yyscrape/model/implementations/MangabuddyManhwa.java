@@ -1,10 +1,12 @@
-package com.yaoiyun.yyscrape.model.manhwa;
+package com.yaoiyun.yyscrape.model.implementations;
+
+import com.yaoiyun.yyscrape.model.Manhwa;
 
 import java.util.List;
 
-public class Mangabuddy extends Manhwa {
+public class MangabuddyManhwa extends Manhwa {
 
-    public Mangabuddy(String name, String url) {
+    public MangabuddyManhwa(String name, String url) {
         super(name, url);
     }
 

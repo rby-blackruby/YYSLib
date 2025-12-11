@@ -1,10 +1,12 @@
-package com.yaoiyun.yyscrape.model.manhwa;
+package com.yaoiyun.yyscrape.model.implementations;
+
+import com.yaoiyun.yyscrape.model.Manhwa;
 
 import java.util.List;
 
-public class Zinchanmangas extends Manhwa {
+public class ZinchanmangasManhwa extends Manhwa {
 
-    public Zinchanmangas(String name, String url) {
+    public ZinchanmangasManhwa(String name, String url) {
         super(name, url);
     }
 

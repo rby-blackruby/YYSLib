@@ -1,10 +1,12 @@
-package com.yaoiyun.yyscrape.model.manhwa;
+package com.yaoiyun.yyscrape.model.implementations;
+
+import com.yaoiyun.yyscrape.model.Manhwa;
 
 import java.util.List;
 
-public class Battwo extends Manhwa {
+public class BattwoManhwa extends Manhwa {
 
-    public Battwo(String name, String url) {
+    public BattwoManhwa(String name, String url) {
         super(name, url);
     }
 
