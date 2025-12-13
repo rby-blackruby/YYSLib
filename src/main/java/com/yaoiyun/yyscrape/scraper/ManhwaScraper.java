@@ -1,29 +1,30 @@
 package com.yaoiyun.yyscrape.scraper;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
+import com.yaoiyun.yyscrape.model.Manhwa;
+import org.openqa.selenium.WebDriver;
+
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class ManhwaScraper extends AbstractScraper {
+public class ManhwaScraper extends GenericScraper<Manhwa> {
 
-    private ManhwaScraper(Builder builder) {
-        super(builder);
+    public ManhwaScraper(WebDriver webDriver, short executionThreads, Manhwa assignedContent) {
+        super(webDriver, executionThreads, assignedContent, Manhwa.class);
     }
 
     @Override
-    public void run() {
-        this.getWebDriver().get(this.getAssignedContent().getUrl());
+    public List<String> getContentUrls() {
+        this.getWebDriver().get("https://" + this.getAssignedContent().getUrl());
+        return List.of("url 1", "url 2");
     }
 
-    public static class Builder extends AbstractScraper.Builder<Builder> {
-
-        @Override
-        public ManhwaScraper build() {
-            return new ManhwaScraper(this);
-        }
+    @Override
+    public List<byte[]> getContents() {
+        return List.of();
     }
+
+    @Override
+    public void close() {
+        this.getWebDriver().close();
+    }
+
 }
