@@ -1,5 +1,7 @@
 package com.yaoiyun.yyscrape.scraper;
 
-public interface Scraper {
-    void run();
+import java.util.List;
+
+public interface Scraper extends LinkScraper, ContentScraper{
 }
+
