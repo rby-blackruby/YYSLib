@@ -14,6 +14,7 @@ public class ScrapableContentFactory {
             case ScrapableContentType.IMAGE -> ManhwaFactory.getManhwa(name, url);
 
             // TODO: switch these out to actually implemented factories
+            //
             case ScrapableContentType.TEXT -> new BattwoManhwa("Name", "Url");
             case ScrapableContentType.VIDEO -> new MangabuddyManhwa("Name", "Url");
         };
