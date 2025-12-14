@@ -1,10 +1,14 @@
 package com.yaoiyun.yyscrape.utils;
 
+import java.util.Arrays;
+
 public class UrlUtils {
 
     // TODO split the url with and get the [1] element, that should be the xyz.com base url part.
+    // urlArr is: [https:, , mangabuddy.com] -- actually needs array[2]
     public static String getBaseUrl(String url) {
-        return "";
+        String[] urlArr = url.split("//");
+        return urlArr[2];
     }
 
     public static String getSanitizedUrl(String url) {
