@@ -1,4 +1,4 @@
-# YYScrape
+# YYScrapeLib
 
 A Java-based web scraping core library for extracting content from manga, manhwa, novels, and other serialized content platforms, designed with a modular, extensible architecture.
 
