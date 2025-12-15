@@ -1,14 +1,8 @@
-package com.yaoiyun.yyscrape.content.implementations;
-
-import com.yaoiyun.yyscrape.content.Manhwa;
+package com.yaoiyun.yyscrape.content.configs;
 
 import java.util.List;
 
-public class ZinchanmangasManhwa extends Manhwa {
-
-    public ZinchanmangasManhwa(String name, String url) {
-        super(name, url);
-    }
+public class ZinchanmangasManhwaConfig implements ManhwaConfig {
 
     @Override
     public List<String> getValidImageExtensions() {
@@ -18,6 +12,11 @@ public class ZinchanmangasManhwa extends Manhwa {
     @Override
     public List<String> getRequiredKeywordsInImageUrl() {
         return List.of("");
+    }
+
+    @Override
+    public String getChapterUrlRegex() {
+        return "";
     }
 
 }

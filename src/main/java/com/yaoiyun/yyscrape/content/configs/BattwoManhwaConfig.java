@@ -1,14 +1,8 @@
-package com.yaoiyun.yyscrape.content.implementations;
-
-import com.yaoiyun.yyscrape.content.Manhwa;
+package com.yaoiyun.yyscrape.content.configs;
 
 import java.util.List;
 
-public class BattwoManhwa extends Manhwa {
-
-    public BattwoManhwa(String name, String url) {
-        super(name, url);
-    }
+public class BattwoManhwaConfig implements ManhwaConfig {
 
     @Override
     public List<String> getValidImageExtensions() {
@@ -24,4 +18,5 @@ public class BattwoManhwa extends Manhwa {
     public String getChapterUrlRegex() {
         return "ch_(\\d+)(?:[-\\.](\\d+))?(?:[-\\.](\\d+))?";
     }
+
 }
