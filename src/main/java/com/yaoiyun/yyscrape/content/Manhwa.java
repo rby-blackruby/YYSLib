@@ -1,4 +1,4 @@
-package com.yaoiyun.yyscrape.model;
+package com.yaoiyun.yyscrape.content;
 
 import java.util.List;
 

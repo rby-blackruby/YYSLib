@@ -1,8 +1,9 @@
-package com.yaoiyun.yyscrape.model;
+package com.yaoiyun.yyscrape.content.factories;
 
-import com.yaoiyun.yyscrape.model.implementations.BattwoManhwa;
-import com.yaoiyun.yyscrape.model.implementations.MangabuddyManhwa;
-import com.yaoiyun.yyscrape.model.implementations.ZinchanmangasManhwa;
+import com.yaoiyun.yyscrape.content.Manhwa;
+import com.yaoiyun.yyscrape.content.implementations.BattwoManhwa;
+import com.yaoiyun.yyscrape.content.implementations.MangabuddyManhwa;
+import com.yaoiyun.yyscrape.content.implementations.ZinchanmangasManhwa;
 import com.yaoiyun.yyscrape.utils.UrlUtils;
 
 import java.util.Map;

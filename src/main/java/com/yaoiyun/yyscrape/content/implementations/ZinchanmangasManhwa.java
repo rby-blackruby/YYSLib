@@ -1,6 +1,6 @@
-package com.yaoiyun.yyscrape.model.implementations;
+package com.yaoiyun.yyscrape.content.implementations;
 
-import com.yaoiyun.yyscrape.model.Manhwa;
+import com.yaoiyun.yyscrape.content.Manhwa;
 
 import java.util.List;
 

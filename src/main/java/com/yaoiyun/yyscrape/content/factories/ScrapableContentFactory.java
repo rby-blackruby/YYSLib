@@ -1,7 +1,9 @@
-package com.yaoiyun.yyscrape.model;
+package com.yaoiyun.yyscrape.content.factories;
 
-import com.yaoiyun.yyscrape.model.implementations.BattwoManhwa;
-import com.yaoiyun.yyscrape.model.implementations.MangabuddyManhwa;
+import com.yaoiyun.yyscrape.content.ScrapableContent;
+import com.yaoiyun.yyscrape.content.ScrapableContentType;
+import com.yaoiyun.yyscrape.content.implementations.BattwoManhwa;
+import com.yaoiyun.yyscrape.content.implementations.MangabuddyManhwa;
 
 public class ScrapableContentFactory {
 
