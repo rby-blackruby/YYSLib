@@ -1,17 +1,18 @@
 package com.yaoiyun.yyscrape.content;
 
-import java.util.List;
+import com.yaoiyun.yyscrape.content.configs.ManhwaConfig;
 
-public abstract class Manhwa extends ScrapableContent {
+public class Manhwa extends ScrapableContent {
     protected final String DEFAULT_CHAPTER_URL_REGEX = this.getUrl() + "chapter-(\\d+)(?:-(\\d+))?(?:-(\\d+))?";
+    private final ManhwaConfig manhwaConfig;
 
-    public Manhwa(String name, String url) {
+    public Manhwa(String name, String url, ManhwaConfig manhwaConfig) {
         super(name, url, ScrapableContentType.IMAGE);
+        this.manhwaConfig = manhwaConfig;
     }
 
-    public abstract List<String> getValidImageExtensions();
-    public abstract List<String> getRequiredKeywordsInImageUrl();
-    public String getChapterUrlRegex() {
-        return DEFAULT_CHAPTER_URL_REGEX;
+    public ManhwaConfig getManhwaConfig() {
+        return manhwaConfig;
     }
+
 }
