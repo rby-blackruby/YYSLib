@@ -1,11 +1,9 @@
 package com.yaoiyun.yyscrape.scraper;
 
-import com.yaoiyun.yyscrape.model.ScrapableContent;
+import com.yaoiyun.yyscrape.content.ScrapableContent;
 import org.openqa.selenium.WebDriver;
 
-import java.util.List;
-
-public abstract class GenericScraper<T extends ScrapableContent> implements Scraper<T>, AutoCloseable {
+public abstract class GenericScraper<T extends ScrapableContent> implements ContentAssignable<T>, AutoCloseable {
     private final WebDriver webDriver;
     private final short executionThreads;
     private final T assignedContent;
@@ -36,10 +34,5 @@ public abstract class GenericScraper<T extends ScrapableContent> implements Scra
         return assignedContentClass;
     }
 
-    @Override
-    public abstract List<String> getContentUrls();
-
-    @Override
-    public abstract List<byte[]> getContents();
 
 }
