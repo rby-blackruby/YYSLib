@@ -1,4 +1,4 @@
-package com.yaoiyun.yyscrape.scraper.implementations;
+package com.yaoiyun.yyscrape.scraper.link;
 
 import com.yaoiyun.yyscrape.content.Manhwa;
 import com.yaoiyun.yyscrape.scraper.LinkExtractor;
@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,15 +26,11 @@ public class ManhwaLinkExtractor extends LinkExtractor<Manhwa> {
         List<String> hrefs = elements.stream()
                 .map(e -> e.getAttribute("href"))
                 .filter(Objects::nonNull)
-                .filter(href -> href.contains(UrlUtils.getSanitizedUrl(this.getAssignedContent().getUrl()) + this.getAssignedContent().getManhwaConfig().getChapterUrlRegex()))
+                .filter(href -> href.contains(UrlUtils.getSanitizedUrl(this.getAssignedContent().getUrl()) + this.getAssignedContent().getScrapeStrategy().getChapterUrlRegex()))
                 .distinct()
                 .toList();
 
-        for(var href : hrefs) {
-            System.out.println(href);
-        }
-
-        return List.of();
+        return hrefs;
     }
 
     @Override

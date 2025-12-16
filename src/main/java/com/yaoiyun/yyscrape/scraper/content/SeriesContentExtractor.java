@@ -1,17 +1,16 @@
-package com.yaoiyun.yyscrape.scraper.implementations;
+package com.yaoiyun.yyscrape.scraper.content;
 
-import com.yaoiyun.yyscrape.content.Manhwa;
+import com.yaoiyun.yyscrape.content.Series;
 import com.yaoiyun.yyscrape.scraper.ContentExtractor;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 
-public class ManhwaContentExtractor extends ContentExtractor<Manhwa> {
+public class SeriesContentExtractor extends ContentExtractor<Series> {
 
-    public ManhwaContentExtractor(WebDriver webDriver, short executionThreads, Manhwa assignedContent) {
-        super(webDriver, executionThreads, assignedContent, Manhwa.class);
+    public SeriesContentExtractor(WebDriver webDriver, short executionThreads, Series assignedContent) {
+        super(webDriver, executionThreads, assignedContent, Series.class);
     }
-
 
     @Override
     public List<byte[]> getContents(String contentUrl) {

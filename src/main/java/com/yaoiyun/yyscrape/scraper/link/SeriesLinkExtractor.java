@@ -1,4 +1,4 @@
-package com.yaoiyun.yyscrape.scraper.implementations;
+package com.yaoiyun.yyscrape.scraper.link;
 
 import com.yaoiyun.yyscrape.content.Series;
 import com.yaoiyun.yyscrape.scraper.LinkExtractor;

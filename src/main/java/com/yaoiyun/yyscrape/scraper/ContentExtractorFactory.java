@@ -1,14 +1,13 @@
-package com.yaoiyun.yyscrape.scraper.assembly;
+package com.yaoiyun.yyscrape.scraper;
 
 import com.yaoiyun.yyscrape.content.Manhwa;
 import com.yaoiyun.yyscrape.content.Novel;
 import com.yaoiyun.yyscrape.content.ScrapableContent;
 import com.yaoiyun.yyscrape.content.Series;
-import com.yaoiyun.yyscrape.scraper.ContentExtractor;
 
-import com.yaoiyun.yyscrape.scraper.implementations.ManhwaContentExtractor;
-import com.yaoiyun.yyscrape.scraper.implementations.NovelContentExtractor;
-import com.yaoiyun.yyscrape.scraper.implementations.SeriesContentExtractor;
+import com.yaoiyun.yyscrape.scraper.content.ManhwaContentExtractor;
+import com.yaoiyun.yyscrape.scraper.content.NovelContentExtractor;
+import com.yaoiyun.yyscrape.scraper.content.SeriesContentExtractor;
 import org.openqa.selenium.WebDriver;
 
 public class ContentExtractorFactory {

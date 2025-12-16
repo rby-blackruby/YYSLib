@@ -1,7 +1,4 @@
-package com.yaoiyun.yyscrape.content.assembly;
-
-import com.yaoiyun.yyscrape.content.ScrapableContent;
-import com.yaoiyun.yyscrape.content.ScrapableContentType;
+package com.yaoiyun.yyscrape.content;
 
 public class ScrapableContentFactory {
 

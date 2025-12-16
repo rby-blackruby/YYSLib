@@ -1,15 +1,15 @@
-package com.yaoiyun.yyscrape.scraper.implementations;
+package com.yaoiyun.yyscrape.scraper.content;
 
-import com.yaoiyun.yyscrape.content.Series;
+import com.yaoiyun.yyscrape.content.Novel;
 import com.yaoiyun.yyscrape.scraper.ContentExtractor;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 
-public class SeriesContentExtractor extends ContentExtractor<Series> {
+public class NovelContentExtractor extends ContentExtractor<Novel> {
 
-    public SeriesContentExtractor(WebDriver webDriver, short executionThreads, Series assignedContent) {
-        super(webDriver, executionThreads, assignedContent, Series.class);
+    public NovelContentExtractor(WebDriver webDriver, short executionThreads, Novel assignedContent) {
+        super(webDriver, executionThreads, assignedContent, Novel.class);
     }
 
     @Override
