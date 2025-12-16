@@ -1,8 +1,8 @@
-package com.yaoiyun.yyscrape.content.configs;
+package com.yaoiyun.yyscrape.content.scrapestrategy;
 
 import java.util.List;
 
-public class BattwoManhwaConfig implements ManhwaConfig {
+public class BattwoManhwaScrapeStrategy implements ManhwaScrapeStrategy {
 
     @Override
     public List<String> getValidImageExtensions() {
