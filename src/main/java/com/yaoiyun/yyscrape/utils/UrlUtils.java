@@ -1,20 +1,19 @@
 package com.yaoiyun.yyscrape.utils;
 
+import java.net.URI;
 import java.util.Arrays;
 
 public class UrlUtils {
 
-    // TODO split the url with and get the [1] element, that should be the xyz.com base url part.
-    // urlArr is: [https:, , mangabuddy.com] -- actually needs array[2]
-    // this is going to give an out of bounds error if the url is not formatted correctly
     public static String getBaseUrl(String url) {
-        String[] urlArr = url.split("/");
+        URI uri = URI.create(url);
+        String protocol = uri.getScheme();
 
-        if(urlArr.length < 3) {
-            throw new IllegalArgumentException("Url with incorrect formatting cannot be split.");
+        if(!(protocol.equals("http") || protocol.equals("https"))) {
+            throw new IllegalArgumentException("Protocol not supported.");
         }
 
-        return urlArr[2];
+        return uri.getHost();
     }
 
     public static String getSanitizedUrl(String url) {
