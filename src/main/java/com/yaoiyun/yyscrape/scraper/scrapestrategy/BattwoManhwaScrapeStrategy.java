@@ -1,8 +1,12 @@
-package com.yaoiyun.yyscrape.content.scrapestrategy;
+package com.yaoiyun.yyscrape.scraper.scrapestrategy;
 
 import java.util.List;
 
 public class BattwoManhwaScrapeStrategy implements ManhwaScrapeStrategy {
+
+    public BattwoManhwaScrapeStrategy() {
+
+    }
 
     @Override
     public List<String> getValidImageExtensions() {

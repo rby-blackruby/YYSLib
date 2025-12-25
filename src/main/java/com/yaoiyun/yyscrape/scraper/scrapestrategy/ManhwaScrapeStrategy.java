@@ -1,9 +1,11 @@
-package com.yaoiyun.yyscrape.content.scrapestrategy;
+package com.yaoiyun.yyscrape.scraper.scrapestrategy;
 
 import java.util.List;
 
 public interface ManhwaScrapeStrategy {
     List<String> getValidImageExtensions();
     List<String> getRequiredKeywordsInImageUrl();
-    String getChapterUrlRegex();
+    default String getChapterUrlRegex() {
+        return "chapter-(\\d+)(?:-(\\d+))?(?:-(\\d+))?";
+    }
 }

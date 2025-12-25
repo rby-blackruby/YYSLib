@@ -1,8 +1,12 @@
-package com.yaoiyun.yyscrape.content.scrapestrategy;
+package com.yaoiyun.yyscrape.scraper.scrapestrategy;
 
 import java.util.List;
 
 public class ZinchanmangasManhwaScrapeStrategy implements ManhwaScrapeStrategy {
+
+    public ZinchanmangasManhwaScrapeStrategy() {
+
+    }
 
     @Override
     public List<String> getValidImageExtensions() {
@@ -11,12 +15,7 @@ public class ZinchanmangasManhwaScrapeStrategy implements ManhwaScrapeStrategy {
 
     @Override
     public List<String> getRequiredKeywordsInImageUrl() {
-        return List.of("");
-    }
-
-    @Override
-    public String getChapterUrlRegex() {
-        return "";
+        return List.of("/manga");
     }
 
 }
