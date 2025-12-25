@@ -1,10 +1,9 @@
 package com.yaoiyun.yyscrape.scraper;
 
-import com.yaoiyun.yyscrape.content.ScrapableContent;
-
 import java.util.List;
 
-public interface ContentScraper<T extends ScrapableContent> extends ContentAssignable<T> {
+public interface ContentScraper {
+
     List<byte[]> getContents(String contentUrl);
     String getAssignedContentUrl();
 }
