@@ -6,6 +6,7 @@ import com.yaoiyun.yyscrape.scraper.AbstractScraperBase;
 import com.yaoiyun.yyscrape.scraper.ContentScraper;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.image.BufferedImage;
 import java.util.List;
 
 public class NovelTextContentScraper extends AbstractScraperBase implements ContentScraper {
@@ -15,7 +16,7 @@ public class NovelTextContentScraper extends AbstractScraperBase implements Cont
     }
 
     @Override
-    public List<byte[]> getContents(String contentUrl) {
+    public List<BufferedImage> getContents(String contentUrl) {
         return List.of();
     }
 }
