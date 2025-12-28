@@ -7,7 +7,7 @@
     <groupId>com.yaoiyun.yyscrape</groupId>
     <artifactId>yyscrape</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <description>BLManhwaLib scraping tool rewritten in java</description>
+    <description>YYSLib is a custom, extensible media archival and backup library written in Java</description>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
