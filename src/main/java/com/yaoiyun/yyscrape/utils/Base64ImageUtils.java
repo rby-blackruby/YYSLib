@@ -37,15 +37,18 @@ public class Base64ImageUtils {
         BufferedImage image1 = convertToBufferedImage(base64ImageString1);
         BufferedImage image2 = convertToBufferedImage(base64ImageString2);
 
-        int mergedWidth = mergeDirection == MergeDirection.HORIZONTAL
-                ? image1.getWidth() + image2.getWidth()
-                : Math.max(image1.getWidth(), image2.getWidth());
+        final int mergedWidth;
+        final int mergedHeight;
+        if (mergeDirection == MergeDirection.HORIZONTAL) {
+            mergedWidth = image1.getWidth() + image2.getWidth();
+            mergedHeight = Math.max(image1.getHeight(), image2.getHeight());
 
-        int mergedHeight = mergeDirection == MergeDirection.HORIZONTAL
-                ? Math.max(image1.getHeight(), image2.getHeight())
-                : image1.getHeight() + image2.getHeight();
+        } else {
+            mergedWidth = Math.max(image1.getWidth(), image2.getWidth());
+            mergedHeight = image1.getHeight() + image2.getHeight();
+        }
 
-        BufferedImage merged = new BufferedImage(mergedWidth, mergedHeight, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage merged = new BufferedImage(mergedWidth, mergedHeight, BufferedImage.TYPE_INT_RGB);
 
         Graphics2D canvas = merged.createGraphics();
 
