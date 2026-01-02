@@ -35,9 +35,9 @@ public class ManhwaLinkScraper extends AbstractScraperBase implements LinkScrape
         // TODO: use explicit wait instead of implicit x seconds
         this.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        new Actions(this.getWebDriver()).scrollByAmount(0, 20000).perform();
-        // this too
-        this.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        postLoadAction();
+
 
         List<WebElement> elements = findWebsiteElementsByCssSelector("a");
         for(var element : elements) {
@@ -47,6 +47,11 @@ public class ManhwaLinkScraper extends AbstractScraperBase implements LinkScrape
         }
 
         return getFilteredChapterUrls(elements);
+    }
+
+    protected void postLoadAction() {
+        new Actions(this.getWebDriver()).scrollByAmount(0, 20000).perform();
+        this.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     protected List<WebElement> findWebsiteElementsByCssSelector(String selector) {
