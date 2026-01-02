@@ -4,11 +4,14 @@ import com.yaoiyun.yyscrape.content.ScrapableContent;
 import com.yaoiyun.yyscrape.content.ScrapableContentType;
 import com.yaoiyun.yyscrape.scraper.AbstractScraperBase;
 import com.yaoiyun.yyscrape.scraper.ContentScraper;
+import com.yaoiyun.yyscrape.scraper.ScrapeResult;
 import org.openqa.selenium.WebDriver;
 
-import java.awt.image.BufferedImage;
+import java.io.InputStream;
 import java.util.List;
 
+// Apparently InputStream is what should be used for when downloading video media, needs more testing
+// to see how it would work.
 public class SeriesVideoContentScraper extends AbstractScraperBase implements ContentScraper {
 
     public SeriesVideoContentScraper(WebDriver webDriver, ScrapableContent assignedContent) {
@@ -16,7 +19,7 @@ public class SeriesVideoContentScraper extends AbstractScraperBase implements Co
     }
 
     @Override
-    public List<BufferedImage> getContents(String contentUrl) {
+    public List<ScrapeResult> getContents(String contentUrl) {
         return List.of();
     }
 }
