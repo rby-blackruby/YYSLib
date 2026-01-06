@@ -2,7 +2,9 @@ package com.yaoiyun.yyscrape.scraper;
 
 import com.yaoiyun.yyscrape.content.ScrapableContent;
 import com.yaoiyun.yyscrape.content.ScrapableContentType;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public abstract class AbstractScraperBase implements ContentAssignable, AutoCloseable {
     private WebDriver webDriver;
@@ -39,6 +41,13 @@ public abstract class AbstractScraperBase implements ContentAssignable, AutoClos
     @Override
     public void close() {
         try { this.webDriver.quit(); } catch(Exception ignored) {}
+    }
+
+    protected boolean isCloudflareBlocked() {
+        return this.getWebDriver().findElements(By.cssSelector("a")).stream()
+                .map(WebElement::getText)
+                .anyMatch(pageText -> pageText.contains("Verify you are human by completing the action below.")
+                        || pageText.contains("Cloudflare"));
     }
 
 }
