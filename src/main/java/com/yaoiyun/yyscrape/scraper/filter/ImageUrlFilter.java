@@ -1,4 +1,4 @@
-package com.yaoiyun.yyscrape.scraper.content;
+package com.yaoiyun.yyscrape.scraper.filter;
 
 import java.util.List;
 
