@@ -1,5 +1,7 @@
 package com.yaoiyun.yyscrape.utils;
 
+import com.yaoiyun.yyscrape.scraper.exception.ImageProcessException;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -26,18 +28,18 @@ public class ImageUtils {
         LOGGER.info("Writing images to baos...");
         ByteArrayOutputStream topBaos = new ByteArrayOutputStream();
         try {
-            if(ImageIO.write(topImage, imageExtension, topBaos))
-                throw new RuntimeException("Failed to write topImage to baos, ImageIO.write returned false!!");
+            if(!ImageIO.write(topImage, imageExtension, topBaos))
+                throw new ImageProcessException("Failed to write topImage to baos, ImageIO.write returned false!!");
         } catch(IOException e) {
-            throw new RuntimeException("Failed to write topImage to baos.", e);
+            throw new ImageProcessException("Failed to write topImage to baos.", e);
         }
 
         ByteArrayOutputStream bottomBaos = new ByteArrayOutputStream();
         try {
             if(!ImageIO.write(bottomImage, imageExtension, bottomBaos))
-                throw new RuntimeException("Failed to write bottomImage to baos, ImageIO.write returned false!!");
+                throw new ImageProcessException("Failed to write bottomImage to baos, ImageIO.write returned false!!");
         } catch(IOException e) {
-            throw new RuntimeException("Failed to write bottomImage to baos.", e);
+            throw new ImageProcessException("Failed to write bottomImage to baos.", e);
         }
 
         LOGGER.info("Done.");
