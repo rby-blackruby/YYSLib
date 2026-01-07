@@ -4,6 +4,7 @@ import com.yaoiyun.yyscrape.content.ScrapableContent;
 import com.yaoiyun.yyscrape.content.ScrapableContentType;
 import com.yaoiyun.yyscrape.scraper.AbstractScraperBase;
 import com.yaoiyun.yyscrape.scraper.LinkScraper;
+import com.yaoiyun.yyscrape.scraper.action.ScrapeActions;
 import com.yaoiyun.yyscrape.scraper.exception.CloudflareBlockedException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,16 +18,33 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ManhwaLinkScraper extends AbstractScraperBase implements LinkScraper, AutoCloseable {
-    protected final Pattern chapterUrlRegex;
+    protected Pattern chapterUrlRegex = Pattern.compile("chapter-(\\d+)(?:-(\\d+))?(?:-(\\d+))?");
+    protected ScrapeActions scrapeActions = new ScrapeActions() {
+        @Override
+        public void onPageLoadedAction(WebDriver webDriver) {
+            new Actions(webDriver).scrollByAmount(0, 20000).perform();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        }
+    };
 
     public ManhwaLinkScraper(WebDriver webDriver, ScrapableContent assignedContent) {
         super(webDriver, assignedContent, ScrapableContentType.IMAGE);
-        chapterUrlRegex = Pattern.compile("chapter-(\\d+)(?:-(\\d+))?(?:-(\\d+))?");
     }
 
     public ManhwaLinkScraper(WebDriver webDriver, ScrapableContent assignedContent, String chapterUrlRegex) {
         super(webDriver, assignedContent, ScrapableContentType.IMAGE);
         this.chapterUrlRegex = Pattern.compile(chapterUrlRegex);
+    }
+
+    public ManhwaLinkScraper(WebDriver webDriver, ScrapableContent assignedContent, ScrapeActions scrapeActions) {
+        super(webDriver, assignedContent, ScrapableContentType.IMAGE);
+        this.scrapeActions = scrapeActions;
+    }
+
+    public ManhwaLinkScraper(WebDriver webDriver, ScrapableContent assignedContent, String chapterUrlRegex, ScrapeActions scrapeActions) {
+        super(webDriver, assignedContent, ScrapableContentType.IMAGE);
+        this.chapterUrlRegex = Pattern.compile(chapterUrlRegex);
+        this.scrapeActions = scrapeActions;
     }
 
     @Override
@@ -36,7 +54,7 @@ public class ManhwaLinkScraper extends AbstractScraperBase implements LinkScrape
         this.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 
-        postLoadAction();
+        scrapeActions.onPageLoadedAction(this.getWebDriver());
 
 
         List<WebElement> elements = findWebsiteElementsByCssSelector("a");
