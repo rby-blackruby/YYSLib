@@ -1,14 +1,10 @@
 package com.yaoiyun.yyscrape.scraper;
 
 import com.yaoiyun.yyscrape.content.ScrapableContent;
-import com.yaoiyun.yyscrape.scraper.scrapestrategy.ManhwaScrapeStrategy;
 import com.yaoiyun.yyscrape.utils.UrlUtils;
-import org.openqa.selenium.WebDriver;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Supplier;
 
 public class LinkScraperFactory {
     private static final Map<String, ScraperSupplier<? extends LinkScraper>> LINK_SCRAPER_REGISTRY = new ConcurrentHashMap<>();
